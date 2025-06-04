@@ -10,6 +10,7 @@ export interface JobRecommendation {
   salary: string
   growth: string
   reasoning: string
+  matchScore: number
 }
 
 function getReasoning(mbti: string, traits: string[], skills: string[]): string {
@@ -31,7 +32,8 @@ export async function getJobRecommendations(userInfo: UserInfo): Promise<JobReco
       return {
         title: jobTitle,
         ...jobDetails,
-        reasoning: getReasoning(userInfo.mbti, jobDetails.personalityTraits, jobDetails.requiredSkills)
+        reasoning: getReasoning(userInfo.mbti, jobDetails.personalityTraits, jobDetails.requiredSkills),
+        matchScore: 90 // Assuming a default matchScore
       }
     })
   } catch (error) {

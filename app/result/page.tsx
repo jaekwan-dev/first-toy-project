@@ -9,18 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { getJobRecommendations } from "@/lib/recommendation-engine"
-
-interface JobRecommendation {
-  title: string
-  description: string
-  requiredSkills: string[]
-  personalityTraits: string[]
-  salary: string
-  growth: string
-  reasoning: string
-  matchScore: number
-}
+import { getJobRecommendations, JobRecommendation } from "@/lib/recommendation-engine"
 
 export default function ResultPage() {
   const router = useRouter()
